@@ -10,8 +10,8 @@ Each you will 50% of lectures and 50% of work on the competitive challenge using
 
 ### Instructors:
 
-	- Alexandre Gramfort (alexandre.gramfort@inria.fr)
-	- Thomas Moreau (thomas.moreau@inria.fr)
+- Alexandre Gramfort (alexandre.gramfort@inria.fr)
+- Thomas Moreau (thomas.moreau@inria.fr)
 
 ## Day 1: Data wrangling
 
