@@ -31,8 +31,9 @@ Each you will 50% of lectures and 50% of work on the competitive challenge using
 - Problem of the metric with imbalanced data
 - ML approaches to deal with imbalanced data
 - Introduction of the challenges:
-    * Challenge.1: MEG source localisation
-    * Challenge.2: Step detection
+    * Challenge.1: MEG source localisation ([challenge](https://ramp.studio/events/meg_datacamp2020))
+    * Challenge.2: Step detection in human locomotion ([challenge](https://ramp.studio/events/human_locomotion_datacamp2020))
+    * Challenge.3: Variable Stars ([challenge](https://ramp.studio/events/variable_stars_datacamp2020))
 
 ## Day 4: Ensemble methods and feature engineering
 
