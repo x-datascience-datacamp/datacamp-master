@@ -13,6 +13,16 @@ Each day you will have 50% of lectures and 50% of work on the competitive challe
 - Alexandre Gramfort (alexandre.gramfort@inria.fr)
 - Thomas Moreau (thomas.moreau@inria.fr)
 
+### Location
+
+The course will be during the week from Jan 10 to Jan 14 in person and on slack.
+
+To join the slack channel use this [URL](https://join.slack.com/t/datacamp2021/shared_invite/zt-118e9xcfo-QvM6vaj8Q5eC_jxjk1bcHA)
+
+On GitHub you have some teaching materials at: https://github.com/x-datascience-datacamp
+
+You **must** have a GitHub account to complete the course.
+
 ## Day 1: Data wrangling
 
 - Advanced course on Pandas
