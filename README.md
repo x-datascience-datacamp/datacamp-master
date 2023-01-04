@@ -35,7 +35,7 @@ You **must** have a GitHub account to complete the course.
 - Parallel processing with joblib
 - Generalization and Cross Validation
 - **Assignment** [sklearn](https://github.com/x-datascience-datacamp/datacamp-assignment-sklearn)
-- Getting started on RAMP & Introduction to the challenges (Isotopic inventory of a nuclear reactor core in operation, Follicle Detection and Classification)
+- Getting started on RAMP & Introduction to the challenges.
 
 ## Day 3: Metrics and dealing with unbalanced data
 
