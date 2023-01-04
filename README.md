@@ -15,9 +15,9 @@ Each day you will have 50% of lectures and 50% of work on the competitive challe
 
 ### Location
 
-The course will be during the week from Jan 10 to Jan 14 in person and on slack.
+The course will be during the week from Jan 9 to Jan 13 in person.
 
-To join the slack channel use this [URL](https://join.slack.com/t/datacamp2021/shared_invite/zt-118e9xcfo-QvM6vaj8Q5eC_jxjk1bcHA)
+To join the discord channel use this [URL](https://discord.gg/rtsj3ycX)
 
 On GitHub you have some teaching materials at: https://github.com/x-datascience-datacamp
 
