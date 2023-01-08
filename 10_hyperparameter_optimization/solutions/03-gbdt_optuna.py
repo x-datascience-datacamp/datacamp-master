@@ -5,8 +5,8 @@ from optuna import samplers
 
 def objective(trial):
     max_depth = trial.suggest_int('max_depth', 2, 32)
-    learning_rate = trial.suggest_loguniform('learning_rate', 10**-5, 10**0)
-    l2_regularization = trial.suggest_loguniform('l2_regularization', 10**-5, 10**0)
+    learning_rate = trial.suggest_float('learning_rate', 10**-5, 10**0, log=True)
+    l2_regularization = trial.suggest_float('l2_regularization', 10**-5, 10**0, log=True)
     min_samples_leaf = trial.suggest_int('min_samples_leaf', 1, 100)
 
     reg = HistGradientBoostingRegressor(
