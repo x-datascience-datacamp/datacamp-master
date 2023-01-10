@@ -108,7 +108,7 @@ class DecisionBoundaryDisplay:
             to the following matplotlib documentation for details:
             :func:`contourf <matplotlib.pyplot.contourf>`,
             :func:`contour <matplotlib.pyplot.contour>`,
-            :func:`pcolomesh <matplotlib.pyplot.pcolomesh>`.
+            :func:`pcolormesh <matplotlib.pyplot.pcolormesh>`.
 
         ax : Matplotlib axes, default=None
             Axes object to plot on. If `None`, a new figure and axes is
@@ -185,10 +185,10 @@ class DecisionBoundaryDisplay:
             to the following matplotlib documentation for details:
             :func:`contourf <matplotlib.pyplot.contourf>`,
             :func:`contour <matplotlib.pyplot.contour>`,
-            :func:`pcolomesh <matplotlib.pyplot.pcolomesh>`.
+            :func:`pcolormesh <matplotlib.pyplot.pcolormesh>`.
 
         response_method : {'auto', 'predict_proba', 'decision_function', \
-                'predict'}, defaul='auto'
+                'predict'}, default='auto'
             Specifies whether to use :term:`predict_proba`,
             :term:`decision_function`, :term:`predict` as the target response.
             If set to 'auto', the response method is tried in the following
@@ -200,7 +200,7 @@ class DecisionBoundaryDisplay:
             created.
 
         **kwargs : dict
-            Additional keyword arguments to be pased to the `plot_method`.
+            Additional keyword arguments to be passed to the `plot_method`.
 
         Returns
         -------
