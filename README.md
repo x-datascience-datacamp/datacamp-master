@@ -26,8 +26,8 @@ You **must** have a GitHub account to complete the course.
 
 ## Day 1: Data wrangling
 
-- Advanced course on Pandas
 - Introduction to the workflow (VSCode, git, github, tests, ...)
+- Advanced course on Pandas
 - Github **assignments**: [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy) and [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
 
 ## Day 2: ML Pipelines and model evaluation
