@@ -58,4 +58,10 @@ You **must** have a GitHub account to complete the course.
 - Hyperparameter optimization
 - **Working on data challenges**
 
+## Institutional information
+
+This class is teached in the context of the [Master Data Science](https://www.ip-paris.fr/en/education/masters/applied-mathematics-and-statistics-program/master-year-2-data-science) at [Institut Polytechnique de Paris](https://www.ip-paris.fr/).  
+It receives support from [Hi!Paris](https://www.hi-paris.fr/).
+
+![HiPAris](images/logo-hi-paris-retina.png =250x)
 
