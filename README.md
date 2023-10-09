@@ -63,6 +63,6 @@ You **must** have a GitHub account to complete the course.
 This class is teached in the context of the [Master Data Science](https://www.ip-paris.fr/en/education/masters/applied-mathematics-and-statistics-program/master-year-2-data-science) at [Institut Polytechnique de Paris](https://www.ip-paris.fr/).  
 It receives support from [Hi!Paris](https://www.hi-paris.fr/) and [DataIA](https://www.dataia.eu/).
 
-<img src="images/logo-hi-paris-retina.png" width="250px"></img>
-<img src="images/logo-hi-paris-retina.png" width="250px"></img>
+<img src="images/logo-hi-paris-retina.png" height="200px"></img>
+<img src="images/DATAIA-v.png" height="250px"></img>
 
