@@ -24,6 +24,18 @@ On GitHub you have some of the teaching materials at: https://github.com/x-datas
 
 You **must** have a GitHub account to complete the course.
 
+### Setup:
+
+We will be using many Python packages in this course such as `pandas`, 
+`sklearn`, and `matplotlib`, and they can all be downloaded and installed using
+a package-management system. We recommend you to use [`mamba`](https://mamba.readthedocs.io/)
+but you will be fine if you already have [`conda`](https://docs.conda.io/en/latest/) 
+installed in your computer.
+
+**NB**: Windows users should be sure to closely follow the instructions for 
+installing `mamba` and `conda`, since many common problems come from not having 
+properly setup the `PATH` variable for the system.
+
 ## Day 1: Data wrangling
 
 - Introduction to the workflow (VSCode, git, github, tests, ...)
