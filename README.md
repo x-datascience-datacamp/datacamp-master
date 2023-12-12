@@ -10,15 +10,15 @@ Each day you will have 50% of lectures and 50% of work on the competitive challe
 
 ### Instructors:
 
-- Alexandre Gramfort (alexandre.gramfort@inria.fr)
-- Thomas Moreau (thomas.moreau@inria.fr)
-- Pedro Rodrigues (pedro.rodrigues@inria.fr)
+- [Alexandre Gramfort](http://alexandre.gramfort.net) (alexandre.gramfort@inria.fr)
+- [Thomas Moreau](https://tommoral.github.io/about.html) (thomas.moreau@inria.fr)
+- [Pedro L. C. Rodrigues](https://plcrodrigues.github.io/) (pedro.rodrigues@inria.fr)
 
 ### Location
 
 The course will be during the week from Dec 18 to Dec 22 in person.
 
-To join the discord channel use this ~~[URL]()~~ (this link will be updated before the class).
+To join the discord channel use this [URL](https://discord.gg/Y3sehfFM).
 
 On GitHub you have some of the teaching materials at: https://github.com/x-datascience-datacamp
 
