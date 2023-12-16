@@ -8,6 +8,8 @@ Grade is a mix of your performance on the data challenge offered to the class as
 
 Each day you will have 50% of lectures and 50% of work on the competitive challenge using the [RAMP](https://ramp.studio/) website.
 
+The slides used in some of the lectures are available [here](https://drive.google.com/drive/folders/1JvosHOvskofoBgf3CKLaQ72F_UET9aVX?usp=sharing).
+
 ### Instructors:
 
 - [Alexandre Gramfort](http://alexandre.gramfort.net) (alexandre.gramfort@inria.fr)
