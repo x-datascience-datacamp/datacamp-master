@@ -8,26 +8,40 @@ Grade is a mix of your performance on the data challenge offered to the class as
 
 Each day you will have 50% of lectures and 50% of work on the competitive challenge using the [RAMP](https://ramp.studio/) website.
 
+The slides used in some of the lectures are available [here](https://drive.google.com/drive/folders/1JvosHOvskofoBgf3CKLaQ72F_UET9aVX?usp=sharing).
+
 ### Instructors:
 
-- Alexandre Gramfort (alexandre.gramfort@inria.fr)
-- Thomas Moreau (thomas.moreau@inria.fr)
-- Pedro Rodrigues (pedro.rodrigues@inria.fr)
+- [Alexandre Gramfort](http://alexandre.gramfort.net) (alexandre.gramfort@inria.fr)
+- [Thomas Moreau](https://tommoral.github.io/about.html) (thomas.moreau@inria.fr)
+- [Pedro L. C. Rodrigues](https://plcrodrigues.github.io/) (pedro.rodrigues@inria.fr)
 
 ### Location
 
 The course will be during the week from Dec 18 to Dec 22 in person.
 
-To join the discord channel use this ~~[URL]()~~ (this link will be updated before the class).
+To join the discord channel use this [URL](https://discord.gg/Y3sehfFM).
 
 On GitHub you have some of the teaching materials at: https://github.com/x-datascience-datacamp
 
 You **must** have a GitHub account to complete the course.
 
+### Setup:
+
+We will be using many Python packages in this course such as `pandas`, 
+`sklearn`, and `matplotlib`, and they can all be downloaded and installed using
+a package-management system. We recommend you to use [`mamba`](https://mamba.readthedocs.io/)
+but you will be fine if you already have [`conda`](https://docs.conda.io/en/latest/) 
+installed in your computer.
+
+**NB**: Windows users should be sure to closely follow the instructions for 
+installing `mamba` and `conda`, since many common problems come from not having 
+properly setup the `PATH` variable for the system.
+
 ## Day 1: Data wrangling
 
-- Advanced course on Pandas
 - Introduction to the workflow (VSCode, git, github, tests, ...)
+- Advanced course on Pandas
 - Github **assignments**: [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy) and [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
 
 ## Day 2: ML Pipelines and model evaluation
