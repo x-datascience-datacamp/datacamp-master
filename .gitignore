@@ -1,5 +1,5 @@
 .ipynb_checkpoints
-
 .DS_Store
-
 *.pyc
+.vscode
+data_camp_venv
