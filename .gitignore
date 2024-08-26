@@ -2,4 +2,7 @@
 
 .DS_Store
 
+*.pq
+*.xls
+*.csv
 *.pyc

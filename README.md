@@ -12,15 +12,14 @@ The slides used in some of the lectures are available [here](https://drive.googl
 
 ### Instructors:
 
-- [Alexandre Gramfort](http://alexandre.gramfort.net) (alexandre.gramfort@inria.fr)
 - [Thomas Moreau](https://tommoral.github.io/about.html) (thomas.moreau@inria.fr)
 - [Pedro L. C. Rodrigues](https://plcrodrigues.github.io/) (pedro.rodrigues@inria.fr)
 
 ### Location
 
-The course will be during the week from Dec 18 to Dec 22 in person.
+The course will be during the week from Dec 16 to Dec 20 2024 in person.
 
-To join the discord channel use this [URL](https://discord.gg/Y3sehfFM).
+To join the discord channel use this [URL](TODO).
 
 On GitHub you have some of the teaching materials at: https://github.com/x-datascience-datacamp
 
@@ -40,7 +39,7 @@ properly setup the `PATH` variable for the system.
 
 ## Day 1: Data wrangling
 
-- Introduction to the workflow (VSCode, git, github, tests, ...)
+- Introduction to the workflow (VSCode, python distribution, git, github, tests, ...)
 - Advanced course on Pandas
 - Github **assignments**: [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy) and [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
 
@@ -59,9 +58,10 @@ properly setup the `PATH` variable for the system.
 - ML approaches to deal with imbalanced data
 - **Working on data challenges**
 
-## Day 4: Feature engineering and model inspection
+## Day 4: Working with complex data
 
 - Feature engineering and advanced encoding of categorical features
+- Working with signals and time series
 - Model inspection: Partial dependence plots, Feature importance
 - **Working on data challenges**
 
