@@ -1,6 +1,6 @@
 import numpy as np
-import matplotlib.pyplot as plt
 from matplotlib import cm
+import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from scipy import ndimage
 
@@ -10,7 +10,11 @@ from sklearn.tree import (
     plot_tree,
 )
 
-cm2 = ListedColormap(['#1f77b4', '#ff7f0e'])
+top = cm.get_cmap('Oranges_r', 128)
+bottom = cm.get_cmap('Blues', 128)
+newcolors = np.vstack((top(np.linspace(0, 1, 128)),
+                       bottom(np.linspace(0, 1, 128))))
+cmap = ListedColormap(newcolors, name='OrangeBlue')
 
 X, y = make_blobs(centers=[[0, 0], [1, 1]], random_state=61526, n_samples=50)
 
@@ -33,12 +37,6 @@ def plot_tree_and_boundary(max_depth=1):
             np.c_[xx.ravel(), yy.ravel()].astype(np.float32))
         faces = faces.reshape(xx.shape)
         border = ndimage.laplace(faces) != 0
-
-        top = cm.get_cmap('Oranges_r', 128)
-        bottom = cm.get_cmap('Blues', 128)
-        newcolors = np.vstack((top(np.linspace(0, 1, 128)),
-                               bottom(np.linspace(0, 1, 128))))
-        cmap = ListedColormap(newcolors, name='OrangeBlue')
 
         ax[0].contourf(xx, yy, Z, alpha=.4, cmap=cmap)
         ax[0].scatter(xx[border], yy[border], marker='.', s=1)
