@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import cm
 from matplotlib.colors import ListedColormap
 
-from sklearn.utils import check_matplotlib_support
+# from sklearn.utils import check_matplotlib_support
 from sklearn.utils import _safe_indexing
 
 
@@ -121,7 +121,7 @@ class DecisionBoundaryDisplay:
         -------
         display: :class:`~sklearn.inspection.DecisionBoundaryDisplay`
         """
-        check_matplotlib_support("DecisionBoundaryDisplay.plot")
+        # check_matplotlib_support("DecisionBoundaryDisplay.plot")
         import matplotlib.pyplot as plt  # noqa
 
         if plot_method not in ("contourf", "contour", "pcolormesh"):
@@ -132,11 +132,12 @@ class DecisionBoundaryDisplay:
         if ax is None:
             _, ax = plt.subplots()
 
-        top = cm.get_cmap('Oranges_r', 128)
-        bottom = cm.get_cmap('Blues', 128)
-        newcolors = np.vstack((top(np.linspace(0, 1, 128)),
-                            bottom(np.linspace(0, 1, 128))))
-        cmap = ListedColormap(newcolors, name='OrangeBlue')
+        top = cm.get_cmap("Oranges_r", 128)
+        bottom = cm.get_cmap("Blues", 128)
+        newcolors = np.vstack(
+            (top(np.linspace(0, 1, 128)), bottom(np.linspace(0, 1, 128)))
+        )
+        cmap = ListedColormap(newcolors, name="OrangeBlue")
         kwargs["cmap"] = kwargs.get("cmap", cmap)
 
         plot_func = getattr(ax, plot_method)
@@ -161,7 +162,7 @@ class DecisionBoundaryDisplay:
         plot_method="contourf",
         response_method="auto",
         ax=None,
-        **kwargs
+        **kwargs,
     ):
         """Plot Decision Boundary.
 
@@ -206,7 +207,7 @@ class DecisionBoundaryDisplay:
         -------
         display: :class:`~sklearn.inspection.DecisionBoundaryDisplay`
         """
-        check_matplotlib_support("plot_decision_boundary")
+        # check_matplotlib_support("plot_decision_boundary")
 
         if not grid_resolution > 1:
             raise ValueError("grid_resolution must be greater than 1")
