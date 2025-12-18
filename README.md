@@ -17,7 +17,7 @@ The slides used in some of the lectures are available [here](https://drive.googl
 
 ### Location
 
-The course will be during the week from Dec 16 to Dec 20 2024 in person.
+The course will be during the week from Dec 16 to Dec 20 2025 in person.
 
 To join the discord channel use this [URL](TODO).
 
