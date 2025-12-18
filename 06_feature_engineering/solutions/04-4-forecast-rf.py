@@ -9,9 +9,10 @@ model = RandomForestRegressor().fit(X_ar, y_ar)
 y_forecast = forecast(model, y_ar, len(X_test), p)
 
 from sklearn.metrics import root_mean_squared_error
-pritn("RMSE:", root_mean_squared_error(y_test, y_forecast)
-      
-      mask = ((X_test['date'] > pd.to_datetime('2021/04/05'))
+print("RMSE:", root_mean_squared_error(y_test, y_forecast))
+
+# Plot the week of the 5th to the 12th of April 2021.
+mask = ((X_test['date'] > pd.to_datetime('2021/04/05'))
         & (X_test['date'] < pd.to_datetime('2021/04/12')))
 df_viz = X_test[mask].copy()
 df_viz['bike_count'] = np.exp(y_test[mask.values]) -  1
