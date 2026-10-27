@@ -6,24 +6,25 @@ The aim of this course is to learn data science by doing. All aspects of complet
 
 Grade is a mix of your performance on the data challenge offered to the class as well as the challenge you will setup.
 
-Each day you will have 50% of lectures and 50% of work on the competitive challenge using the [RAMP](https://ramp.studio/) website.
+Each day you will have lectures and time to work on a data challenge using the [Codabench](https://www.codabench.org/) website.
 
-The slides used in some of the lectures are available [here](https://drive.google.com/drive/folders/1JvosHOvskofoBgf3CKLaQ72F_UET9aVX?usp=sharing).
+The slides used in some of the lectures are available [here](https://drive.google.com/drive/folders/1KQSRkaURMixK3CmhnnyuR9kVeVL_stUY?usp=sharing).
 
 ### Instructors:
 
 - [Thomas Moreau](https://tommoral.github.io/about.html) (thomas.moreau@inria.fr)
+
 - [Pedro L. C. Rodrigues](https://plcrodrigues.github.io/) (pedro.rodrigues@inria.fr)
 
 ### Location
 
-The course will be during the week from Dec 16 to Dec 20 2024 in person.
+The course will be during the week from 2-November to 6-November 2024 in person.
 
-To join the discord channel use this [URL](TODO).
+To join the discord channel use this [URL](https://discord.gg/XYjNBAT3Aa).
 
-On GitHub you have some of the teaching materials at: https://github.com/x-datascience-datacamp
+On github you have some of the teaching materials at: https://github.com/x-datascience-datacamp
 
-You **must** have a GitHub account to complete the course.
+You **must** have a github account to complete the course.
 
 ### Setup:
 
