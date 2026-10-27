@@ -37,39 +37,39 @@ installed in your computer.
 installing `mamba` and `conda`, since many common problems come from not having 
 properly setup the `PATH` variable for the system.
 
-## Day 1: Data wrangling
+## Day 1
 
 - Introduction to the workflow (VSCode, python distribution, git, github, tests, ...)
-- Advanced course on Pandas
-- Github **assignments**: [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy) and [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
-
-## Day 2: ML Pipelines and model evaluation
-
+- AI tools for machine learning and data science
 - Advanced scikit-learn: Column transformer and pipelines
-- Parallel processing with joblib
-- Generalization and Cross Validation
-- **Assignment** [sklearn](https://github.com/x-datascience-datacamp/datacamp-assignment-sklearn)
-- Getting started on RAMP & Introduction to the challenges.
+- Github **assignments**: 
+    - [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy)
+    - [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
+    - [sklearn](https://github.com/x-datascience-datacamp/datacamp-assignment-sklearn)
 
-## Day 3: Metrics and dealing with unbalanced data
+## Day 2
 
-- Presentation of the different ML metrics
-- Problem of the metric with imbalanced data
-- ML approaches to deal with imbalanced data
-- **Working on data challenges**
+- Generalization, cross validation, and metrics
+- Hyperparameter optimization with `optuna`
+- Introduction to the data challenges
 
-## Day 4: Working with complex data
-
-- Feature engineering and advanced encoding of categorical features
-- Working with signals and time series
-- Model inspection: Partial dependence plots, Feature importance
-- **Working on data challenges**
-
-## Day 5: Ensemble methods and hyperparameter optimization
+## Day 3
 
 - From trees to gradient boosting
-- Profiling with snakeviz
-- Hyperparameter optimization
+- Tabular foundation models
+- Handling missing values
+- **Working on data challenges**
+
+## Day 4
+
+- Working with complex signals and time series
+- Domain adaptation with `skada`
+- **Working on data challenges**
+
+## Day 5
+
+- Statistics for ML: calibration, conformal prediction, and permutation tests
+- Practical stuff about neural networks
 - **Working on data challenges**
 
 ## Institutional information
