@@ -69,7 +69,7 @@ dependencies:
       - tabpfn               # TabPFN v2 (sklearn API)
       - tabicl               # TabICL (needs Python <= 3.12)
       # Day 4: time-series foundation models and classification
-      - aeon
+      - aeon>=1.0        # unpinned "aeon" can resolve to a 0.0.0 placeholder
       - chronos-forecasting
       - tirex-ts
       # Day 4: domain adaptation and the EEG example

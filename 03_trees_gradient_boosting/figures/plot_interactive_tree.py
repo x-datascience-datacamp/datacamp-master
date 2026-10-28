@@ -1,5 +1,5 @@
 import numpy as np
-from matplotlib import cm
+import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from scipy import ndimage
@@ -10,8 +10,8 @@ from sklearn.tree import (
     plot_tree,
 )
 
-top = cm.get_cmap('Oranges_r', 128)
-bottom = cm.get_cmap('Blues', 128)
+top = matplotlib.colormaps['Oranges_r'].resampled(128)
+bottom = matplotlib.colormaps['Blues'].resampled(128)
 newcolors = np.vstack((top(np.linspace(0, 1, 128)),
                        bottom(np.linspace(0, 1, 128))))
 cmap = ListedColormap(newcolors, name='OrangeBlue')
