@@ -10,3 +10,4 @@
 # course data files that must be shipped despite *.csv above
 !03_trees_gradient_boosting/datasets/penguins.csv
 !06_learning_with_time_series/data/earnings.csv
+!05_missing_values/data/titanic.csv
