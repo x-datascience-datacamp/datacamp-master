@@ -6,24 +6,25 @@ The aim of this course is to learn data science by doing. All aspects of complet
 
 Grade is a mix of your performance on the data challenge offered to the class as well as the challenge you will setup.
 
-Each day you will have 50% of lectures and 50% of work on the competitive challenge using the [RAMP](https://ramp.studio/) website.
+Each day you will have lectures and time to work on a data challenge using the [Codabench](https://www.codabench.org/) website.
 
-The slides used in some of the lectures are available [here](https://drive.google.com/drive/folders/1JvosHOvskofoBgf3CKLaQ72F_UET9aVX?usp=sharing).
+The slides used in some of the lectures are available [here](https://drive.google.com/drive/folders/1KQSRkaURMixK3CmhnnyuR9kVeVL_stUY?usp=sharing).
 
 ### Instructors:
 
 - [Thomas Moreau](https://tommoral.github.io/about.html) (thomas.moreau@inria.fr)
+
 - [Pedro L. C. Rodrigues](https://plcrodrigues.github.io/) (pedro.rodrigues@inria.fr)
 
 ### Location
 
-The course will be during the week from Dec 16 to Dec 20 2024 in person.
+The course will be during the week from 2-November to 6-November 2026 in person.
 
-To join the discord channel use this [URL](TODO).
+To join the discord channel use this [URL](https://discord.gg/XYjNBAT3Aa).
 
-On GitHub you have some of the teaching materials at: https://github.com/x-datascience-datacamp
+On github you have some of the teaching materials at: https://github.com/x-datascience-datacamp
 
-You **must** have a GitHub account to complete the course.
+You **must** have a github account to complete the course.
 
 ### Setup:
 
@@ -37,39 +38,39 @@ installed in your computer.
 installing `mamba` and `conda`, since many common problems come from not having 
 properly setup the `PATH` variable for the system.
 
-## Day 1: Data wrangling
+## Day 1
 
 - Introduction to the workflow (VSCode, python distribution, git, github, tests, ...)
-- Advanced course on Pandas
-- Github **assignments**: [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy) and [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
-
-## Day 2: ML Pipelines and model evaluation
-
+- AI tools for machine learning and data science
 - Advanced scikit-learn: Column transformer and pipelines
-- Parallel processing with joblib
-- Generalization and Cross Validation
-- **Assignment** [sklearn](https://github.com/x-datascience-datacamp/datacamp-assignment-sklearn)
-- Getting started on RAMP & Introduction to the challenges.
+- Github **assignments**: 
+    - [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy)
+    - [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
+    - [sklearn](https://github.com/x-datascience-datacamp/datacamp-assignment-sklearn)
 
-## Day 3: Metrics and dealing with unbalanced data
+## Day 2
 
-- Presentation of the different ML metrics
-- Problem of the metric with imbalanced data
-- ML approaches to deal with imbalanced data
-- **Working on data challenges**
+- Generalization, cross validation, and metrics
+- Hyperparameter optimization with `optuna`
+- Introduction to the data challenges
 
-## Day 4: Working with complex data
-
-- Feature engineering and advanced encoding of categorical features
-- Working with signals and time series
-- Model inspection: Partial dependence plots, Feature importance
-- **Working on data challenges**
-
-## Day 5: Ensemble methods and hyperparameter optimization
+## Day 3
 
 - From trees to gradient boosting
-- Profiling with snakeviz
-- Hyperparameter optimization
+- Tabular foundation models
+- Handling missing values
+- **Working on data challenges**
+
+## Day 4
+
+- Working with complex signals and time series
+- Domain adaptation with `skada`
+- **Working on data challenges**
+
+## Day 5
+
+- Statistics for ML: calibration, conformal prediction, and permutation tests
+- Practical stuff about neural networks
 - **Working on data challenges**
 
 ## Institutional information

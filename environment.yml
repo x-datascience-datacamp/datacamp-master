@@ -1,0 +1,78 @@
+# Conda/mamba environment for the X-Datascience Datacamp (2026 edition).
+#
+#   mamba env create -f environment.yml      # or: conda env create -f environment.yml
+#   conda activate datacamp-2026
+#   python -m ipykernel install --user --name datacamp-2026
+#
+# Everything available on conda-forge is installed from there; the rest comes
+# from PyPI in the `pip:` block. Packages are grouped by the session that
+# needs them, so you can trim the file if you only run part of the week.
+#
+# Python is pinned to 3.12: tabicl and tabpfn publish wheels for 3.10–3.12,
+# and torch wheels for 3.13+ lag on some platforms.
+#
+# GPU: torch below is the default (CPU on Linux/Windows, Metal/MPS on macOS).
+# For CUDA on Linux, install torch first from https://pytorch.org/get-started/
+# and then `pip install -r` the rest, or run the TabPFN/TabICL/PyTorch
+# notebooks on Colab.
+
+name: datacamp-2026
+channels:
+  - conda-forge
+  - nodefaults
+
+dependencies:
+  - python=3.12
+  - pip
+
+  # --- Core scientific stack (every session) -------------------------------
+  - numpy
+  - pandas
+  - scipy
+  - scikit-learn>=1.6        # FrozenEstimator, metadata routing
+  - matplotlib
+  - seaborn
+  - joblib
+  - tqdm
+  - statsmodels              # Day 5 statistics (OLS, lowess)
+
+  # --- Notebooks ------------------------------------------------------------
+  - jupyterlab
+  - notebook
+  - ipykernel
+  - ipywidgets               # interact() sliders (trees, F-beta)
+  - snakeviz                 # %snakeviz profiling (tinygbt, PyTorch)
+
+  # --- Day 1–3: pipelines, boosting --------------------------------------
+  - lightgbm                 # 03_trees_gradient_boosting/02
+  - optuna                   # 02_model_evaluation/02_02
+
+  # --- Day 4: time series -----------------------------------------------
+  - tslearn                  # DTW, k-means on series
+  - pyts
+  - tsfresh
+  - folium                   # bike-station map
+
+  # --- Day 5: deep learning ---------------------------------------------
+  - pytorch
+  - torchvision
+
+  # --- Dev tooling -----------------------------------------------------
+  - pre-commit               # nbstripout hook (.pre-commit-config.yaml)
+  - pytest
+  - ruff
+
+  - pip:
+      # Day 1 & 3: tabular preprocessing and foundation models
+      - skrub                # TableVectorizer, tabular_pipeline, TextEncoder
+      - category_encoders
+      - tabpfn               # TabPFN v2 (sklearn API)
+      - tabicl               # TabICL (needs Python <= 3.12)
+      # Day 4: time-series foundation models and classification
+      - aeon>=1.0        # unpinned "aeon" can resolve to a 0.0.0 placeholder
+      - chronos-forecasting
+      - tirex-ts
+      # Day 4: domain adaptation and the EEG example
+      - skada
+      - moabb
+      - pyriemann
