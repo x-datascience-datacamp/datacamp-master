@@ -7,7 +7,7 @@ def _encode_dates(X):
     X.loc[:, 'year'] = X['date'].dt.year
     X.loc[:, 'month'] = X['date'].dt.month
     X.loc[:, 'day'] = X['date'].dt.day
-    X.loc[:, 'weekday'] = X['date'].dt.weekday
+    X.loc[:, 'weekday'] = X['date'].dt.day_of_week
     X.loc[:, 'hour'] = X['date'].dt.hour
     X.loc[:, 'holidays'] = X['date'].dt.normalize().isin(holidays_fr)
     # Finally we can drop the original columns from the dataframe
