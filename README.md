@@ -43,6 +43,7 @@ properly setup the `PATH` variable for the system.
 - Introduction to the workflow (VSCode, python distribution, git, github, tests, ...)
 - AI tools for machine learning and data science
 - Advanced scikit-learn: Column transformer and pipelines
+    - Optional: [feature engineering](01_advanced_sklearn/03-feature_engineering.ipynb) for categorical data
 - Github **assignments**: 
     - [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy)
     - [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
