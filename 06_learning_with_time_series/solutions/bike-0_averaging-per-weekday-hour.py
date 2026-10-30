@@ -1,6 +1,6 @@
 
 df_weekly = df.copy()
-df_weekly['weekday'] = df_weekly.date.dt.weekday
+df_weekly['weekday'] = df_weekly.date.dt.day_of_week
 df_weekly['day'] = df_weekly.date.dt.day
 df_weekly['hour'] = df_weekly.date.dt.hour
 df_weekly = df_weekly.set_index('date')

@@ -38,7 +38,7 @@ def _encode_dates(X):
     X.loc[:, 'year'] = X['date'].dt.year
     X.loc[:, 'month'] = X['date'].dt.month
     X.loc[:, 'day'] = X['date'].dt.day
-    X.loc[:, 'weekday'] = X['date'].dt.weekday
+    X.loc[:, 'weekday'] = X['date'].dt.day_of_week
     X.loc[:, 'hour'] = X['date'].dt.hour
     X.loc[:, 'holidays'] = X['date'].dt.normalize().isin(holidays_fr)
     # Finally we can drop the original columns from the dataframe
@@ -51,9 +51,14 @@ selector = FunctionTransformer(
     lambda X: X[['weekday', 'hour', 'holidays']]
 )
 ohe = OneHotEncoder(handle_unknown='ignore')
-pipe = make_pipeline(date_encoder, selector, ohe, regressor)
+clf_holidays = make_pipeline(date_encoder, selector, ohe, regressor)
+
+clf_holidays.fit(X_train, y_train)
+y_pred_holidays = clf_holidays.predict(X_test)
+print("RMSE:", root_mean_squared_error(y_test, y_pred_holidays))
+visualize_pred(y_pred_holidays, "Ridge w/ Holidays")
 
 cv = TimeSeriesSplit(n_splits=6)
-scores = cross_val_score(pipe, X_train, y_train, cv=cv, scoring='neg_root_mean_squared_error')
+scores = cross_val_score(clf_holidays, X_train, y_train, cv=cv, scoring='neg_root_mean_squared_error')
 print('RMSE: ', -scores)
 print(f'RMSE (all folds): {-scores.mean():.3} ± {(-scores).std():.3}')
