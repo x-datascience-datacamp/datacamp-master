@@ -12,7 +12,7 @@ titanic_models = {
     "HGB (native)": titanic_model("passthrough", HistGradientBoostingClassifier()),
 }
 pd.Series({
-    name: cross_val_score(model, X_titanic, y_titanic, cv=cv, scoring="roc_auc").mean()
+    name: cross_val_score(model, X_titanic, survived, cv=cv, scoring="roc_auc").mean()
     for name, model in titanic_models.items()
 }).round(3)
 
