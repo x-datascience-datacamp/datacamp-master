@@ -52,6 +52,9 @@ dependencies:
   - pyts
   - tsfresh
   - folium                   # bike-station map
+  - prophet
+  - pmdarima
+  - plotly
 
   # --- Day 5: deep learning ---------------------------------------------
   - pytorch
@@ -72,6 +75,9 @@ dependencies:
       - aeon>=1.0        # unpinned "aeon" can resolve to a 0.0.0 placeholder
       - chronos-forecasting
       - tirex-ts
+      - mantis-tsfm
+      - timesfm[torch]
+      - tfc-t0[torch]>=0.6.0
       # Day 4: domain adaptation and the EEG example
       - skada
       - moabb

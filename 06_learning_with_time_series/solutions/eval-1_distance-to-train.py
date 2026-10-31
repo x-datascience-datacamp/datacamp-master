@@ -1,0 +1,11 @@
+dist_test = np.abs(X_test - X_train.T).min(axis=1)
+dist_new = np.abs(X_new - X_past.T).min(axis=1)
+print(f"Random split: {dist_test.min()} to {dist_test.max()} months from the training data")
+print(f"New data: {dist_new.min()} to {dist_new.max()} months from the training data")
+
+fig, ax = plt.subplots()
+ax.plot(dist_test, np.abs(y_test - y_pred_test), "o", label="random split")
+ax.plot(dist_new, np.abs(y_new - y_pred_new), "o", label="new data")
+ax.set_xlabel("distance to the training data (months)")
+ax.set_ylabel("absolute error")
+ax.legend()
