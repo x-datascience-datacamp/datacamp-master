@@ -45,9 +45,9 @@ properly setup the `PATH` variable for the system.
 - Advanced scikit-learn: Column transformer and pipelines
     - Optional: [feature engineering](01_advanced_sklearn/03-feature_engineering.ipynb) for categorical data
 - Github **assignments**: 
-    - [numpy](https://github.com/x-datascience-datacamp/datacamp-assignment-numpy)
-    - [pandas](https://github.com/x-datascience-datacamp/datacamp-assignment-pandas)
-    - [sklearn](https://github.com/x-datascience-datacamp/datacamp-assignment-sklearn)
+    - [numpy](https://github.com/x-datascience-datacamp/2026-assignment-numpy)
+    - [pandas](https://github.com/x-datascience-datacamp/2026-assignment-pandas)
+    - [sklearn](https://github.com/x-datascience-datacamp/2026-assignment-sklearn)
 
 ## Day 2
 
