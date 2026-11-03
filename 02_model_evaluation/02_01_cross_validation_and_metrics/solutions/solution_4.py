@@ -12,6 +12,6 @@ for n_samples in sample_sizes:
 
 scores_sample_sizes = pd.DataFrame(scores_sample_sizes)
 
-sns.displot(scores_sample_sizes, kind="kde")
+sns.displot(scores_sample_sizes, kind="kde", palette="viridis")
 plt.xlim([10, 90])
 _ = plt.xlabel("Mean absolute error (k$)")
