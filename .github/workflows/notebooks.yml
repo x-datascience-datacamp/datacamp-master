@@ -2,8 +2,9 @@ name: Notebooks
 
 # Checks the notebook conventions (pre-commit hooks, see CONTRIBUTING.md) and
 # executes notebooks with their exercise cells replaced by their solutions.
-# PRs and pushes run the notebooks they change, directly or through one of
-# their solutions. Run it by hand for a status of every notebook:
+# PRs and pushes run the notebooks they touch: the notebook itself, or any
+# other file in its folder (solutions, data); environment.yml, tools/ or
+# .github/ changes run them all. Run it by hand for a status of every notebook:
 #   gh workflow run notebooks.yml -f notebooks=all
 #   gh workflow run notebooks.yml -f notebooks=06_learning_with_time_series
 
@@ -51,12 +52,14 @@ jobs:
           request = os.environ["NOTEBOOKS"]
           if not request:
               diff = git("diff", "--name-only", os.environ["BASE"], "HEAD")
-              changed = diff.stdout.split() if diff.returncode == 0 else []
-              request = " ".join(
-                  n for n in nbs for c in changed
-                  if c == n or (c.startswith(f"{Path(n).parent}/solutions/")
-                                and f"`{Path(c).relative_to(Path(n).parent)}`" in Path(n).read_text())
-              )
+              changed = diff.stdout.split() if diff.returncode == 0 else [".github/"]
+              if any(c == "environment.yml" or c.startswith((".github/", "tools/")) for c in changed):
+                  request = "all"
+              else:
+                  request = " ".join(
+                      n for n in nbs for c in changed
+                      if c == n or (c.startswith(f"{Path(n).parent}/") and not c.endswith(".ipynb"))
+                  )
           picked = nbs if request == "all" else [n for n in nbs if any(n.startswith(r) for r in request.split())]
           print("\n".join(picked))
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
