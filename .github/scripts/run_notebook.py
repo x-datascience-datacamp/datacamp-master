@@ -1,4 +1,7 @@
-"""Fill a notebook's exercise cells from its solutions/ and execute it.
+"""Execute a notebook with its exercise cells loaded from solutions/.
+
+An exercise cell starts with `# %load solutions/<file>.py`: like running
+`%load`, the cell is replaced by that file before the notebook runs.
 
 Usage: python run_notebook.py <notebook.ipynb> <output_dir>
 """
@@ -12,33 +15,14 @@ import nbformat
 from nbclient import NotebookClient
 from nbclient.exceptions import CellExecutionError
 
-SOLUTION = re.compile(r"solutions/[\w./-]+\.py")
-LOAD = re.compile(r"#?\s*%load\s+(\S+)\s*")
+LOAD = re.compile(r"#\s*%load\s+(\S+)")
 
 path, out_dir = Path(sys.argv[1]), Path(sys.argv[2])
 nb = nbformat.read(path, as_version=4)
-
-# A solution referenced in a markdown cell fills the next empty or `...`
-# skeleton code cell; a cell holding only `%load <file>` gets that file.
-pending = []
 for cell in nb.cells:
-    src = cell.source.strip()
-    if cell.cell_type == "markdown":
-        pending += SOLUTION.findall(cell.source)
-        continue
-    load = LOAD.fullmatch(src)
-    if load:
-        pending = [load.group(1)]
-    elif src and all(line.startswith("#") for line in src.splitlines()):
-        continue
-    elif src and "..." not in src:
-        pending = []
-    if pending:
-        cell.source = "\n\n".join(
-            f"# --- solution: {s}\n" + (path.parent / s).read_text()
-            for s in pending
-        )
-        pending = []
+    load = LOAD.fullmatch(cell.source.split("\n", 1)[0].strip())
+    if cell.cell_type == "code" and load:
+        cell.source = (path.parent / load.group(1)).read_text()
 
 client = NotebookClient(
     nb, timeout=None, kernel_name="python3",

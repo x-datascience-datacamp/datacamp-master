@@ -1,6 +1,7 @@
 name: Notebooks
 
-# Executes notebooks with their exercise cells filled from solutions/.
+# Executes notebooks with their exercise cells (`# %load solutions/<file>.py`)
+# replaced by the solution.
 # PRs and pushes run the notebooks they touch: the notebook itself, or any
 # other file in its folder (solutions, data); environment.yml or .github
 # changes run them all. Run it by hand for a status of every notebook:
