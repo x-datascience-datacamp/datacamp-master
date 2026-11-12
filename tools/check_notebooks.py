@@ -29,6 +29,7 @@ MARKER = re.compile(r"(<b>|\*\*)\s*(exercise|questions?)\b[^<*]*(</b>|\*\*)\s*:?
 BOX = re.compile(r"<b>(EXERCISE|QUESTION)</b>:")
 SOLUTION = re.compile(r"^Solution:.*$", re.M)
 SOLUTION_LINE = re.compile(r"Solution: `solutions/([^`]+)`")
+COLAB = re.compile(r"\[!\[Open in Colab\]\([^)]*\)\]\([^)]*\)")
 PIP = re.compile(r"^\s*[!%]\s*pip\b", re.M)
 
 paths = [
@@ -60,6 +61,8 @@ for path in paths:
             if re.search(r"%load\s", text):
                 error(i, "no %load: name the solution in the exercise box")
             continue
+        if any(b != BADGE.format(path=path) for b in COLAB.findall(text)):
+            error(i, "use the Colab badge of this notebook")
         markers = [m.group(0) for m in MARKER.finditer(text)]
         if any(not BOX.fullmatch(m) for m in markers) or (markers and 'class="alert alert-success"' not in text):
             error(i, "write boxes as <div class=\"alert alert-success\"> with <b>EXERCISE</b>: or <b>QUESTION</b>:")

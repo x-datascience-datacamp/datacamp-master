@@ -1,5 +1,6 @@
 t = np.arange(100) / 3
-x_past = np.sin(t[:50])
+f = lambda t: np.sin(t)
+x_past = f(t[:50])
 
 p = 2
 X = hankel(x_past, r=np.zeros(p))
