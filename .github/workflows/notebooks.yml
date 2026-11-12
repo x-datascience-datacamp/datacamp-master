@@ -1,10 +1,10 @@
 name: Notebooks
 
-# Executes notebooks with their exercise cells (`# %load solutions/<file>.py`)
-# replaced by the solution.
+# Checks the notebook conventions (pre-commit hooks, see CONTRIBUTING.md) and
+# executes notebooks with their exercise cells replaced by their solutions.
 # PRs and pushes run the notebooks they touch: the notebook itself, or any
-# other file in its folder (solutions, data); environment.yml or .github
-# changes run them all. Run it by hand for a status of every notebook:
+# other file in its folder (solutions, data); environment.yml, tools/ or
+# .github/ changes run them all. Run it by hand for a status of every notebook:
 #   gh workflow run notebooks.yml -f notebooks=all
 #   gh workflow run notebooks.yml -f notebooks=06_learning_with_time_series
 
@@ -23,6 +23,12 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx run pre-commit run --all-files --show-diff-on-failure
+
   select:
     runs-on: ubuntu-latest
     outputs:
@@ -47,7 +53,7 @@ jobs:
           if not request:
               diff = git("diff", "--name-only", os.environ["BASE"], "HEAD")
               changed = diff.stdout.split() if diff.returncode == 0 else [".github/"]
-              if any(c == "environment.yml" or c.startswith(".github/") for c in changed):
+              if any(c == "environment.yml" or c.startswith((".github/", "tools/")) for c in changed):
                   request = "all"
               else:
                   request = " ".join(
@@ -78,7 +84,7 @@ jobs:
         with:
           environment-file: environment.yml
           cache-environment: true
-      - run: python .github/scripts/run_notebook.py "${{ matrix.notebook }}" executed
+      - run: python tools/run_notebook.py "${{ matrix.notebook }}" executed
       - id: name
         if: always()
         run: echo "name=$(basename '${{ matrix.notebook }}' .ipynb)" >> "$GITHUB_OUTPUT"

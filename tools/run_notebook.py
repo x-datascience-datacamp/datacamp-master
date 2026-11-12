@@ -1,9 +1,9 @@
-"""Execute a notebook with its exercise cells loaded from solutions/.
+"""Execute a notebook with its exercise cells replaced by their solutions.
 
-An exercise cell starts with `# %load solutions/<file>.py`: like running
-`%load`, the cell is replaced by that file before the notebook runs.
+The cell after a box ending with `Solution: \`solutions/<file>.py\`` is
+replaced by that file before the notebook runs.
 
-Usage: python run_notebook.py <notebook.ipynb> <output_dir>
+Usage: python tools/run_notebook.py <notebook.ipynb> <output_dir>
 """
 import os
 import re
@@ -15,14 +15,14 @@ import nbformat
 from nbclient import NotebookClient
 from nbclient.exceptions import CellExecutionError
 
-LOAD = re.compile(r"#\s*%load\s+(\S+)")
+SOLUTION = re.compile(r"^Solution: `(solutions/[^`]+)`$", re.M)
 
 path, out_dir = Path(sys.argv[1]), Path(sys.argv[2])
 nb = nbformat.read(path, as_version=4)
-for cell in nb.cells:
-    load = LOAD.fullmatch(cell.source.split("\n", 1)[0].strip())
-    if cell.cell_type == "code" and load:
-        cell.source = (path.parent / load.group(1)).read_text()
+for box, cell in zip(nb.cells, nb.cells[1:]):
+    solution = SOLUTION.search(box.source) if box.cell_type == "markdown" else None
+    if solution:
+        cell.source = (path.parent / solution.group(1)).read_text()
 
 client = NotebookClient(
     nb, timeout=None, kernel_name="python3",
