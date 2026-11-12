@@ -7,7 +7,14 @@
 *.csv
 *.pyc
 
-# course data files that must be shipped despite *.csv above
+# downloaded datasets
+09_practical_deep_learning/data/
+*.tar.gz
+*.tgz
+*.zip
+
+# course data files that must be shipped despite the patterns above
 !03_trees_gradient_boosting/datasets/penguins.csv
 !01_advanced_sklearn/data/earnings.csv
 !06_learning_with_time_series/data/AirPassengers.csv
+!04_tabular_foundational_models/data/bike_sharing.zip
