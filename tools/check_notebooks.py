@@ -30,7 +30,7 @@ BOX = re.compile(r"<b>(EXERCISE|QUESTION)</b>:")
 SOLUTION = re.compile(r"^Solution:.*$", re.M)
 SOLUTION_LINE = re.compile(r"Solution: `solutions/([^`]+)`")
 COLAB = re.compile(r"\[!\[Open in Colab\]\([^)]*\)\]\([^)]*\)")
-PIP = re.compile(r"^\s*[!%]\s*pip\b", re.M)
+PIP = re.compile(r"^\s*[!%]?\s*pip\s+install\b", re.M)
 
 paths = [
     p for p in subprocess.run(["git", "ls-files", "*.ipynb"], capture_output=True, text=True, check=True).stdout.split()
