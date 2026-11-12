@@ -31,6 +31,7 @@ conventions below. Run them on the whole repository with
 
 - Below the badge, give the authors and an outline of the notebook. Long
   notebooks have a table of contents.
+- Any other Colab badge in the notebook is the same badge.
 
 ## Running on Colab
 
@@ -87,7 +88,8 @@ Solution: `solutions/cv-1_target-distribution.py`
   (`bike-2_polynomial-features.py`). Every solution file is named by one
   exercise.
 - A solution replaces the whole exercise cell, so it must run on its own
-  after the cells above it.
+  after the cells above it. It also defines every name the starter code
+  defines, because later cells may use them.
 
 ## Outputs and dependencies
 
@@ -96,6 +98,11 @@ Solution: `solutions/cv-1_target-distribution.py`
   notebooks) or `python tools/strip_outputs.py <notebook.ipynb>`. It clears
   the outputs and execution counts and changes nothing else.
 - Every package a notebook imports is listed in `environment.yml`.
+- A cell that fails on purpose carries the `raises-exception` cell tag.
+  Say in the text that it is expected to fail.
+- A notebook that needs a GPU sets `"accelerator": "GPU"` in its notebook
+  metadata. Colab then opens it on a GPU runtime, and CI skips it, because
+  its runners have no GPU.
 - Fix the random seeds (`random_state`, `np.random.default_rng(0)`) so that the
   numbers quoted in the text match a fresh run.
 

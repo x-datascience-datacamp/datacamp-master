@@ -17,5 +17,9 @@ class IndexBasedSplitter(BaseCrossValidator):
             test_idx = idx[mask]
             yield train_idx, test_idx
 
+# Simulate 5 cohorts in the index of y
+y_with_provenance = y.copy()
+y_with_provenance.index = np.random.RandomState(0).randint(0, 5, len(y))
+
 cv = IndexBasedSplitter()
 plot_cv_indices(cv, X_df, y_with_provenance)

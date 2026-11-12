@@ -1,12 +1,15 @@
 """Execute a notebook with its exercise cells replaced by their solutions.
 
 The cell after a box ending with `Solution: \`solutions/<file>.py\`` is
-replaced by that file before the notebook runs.
+replaced by that file before the notebook runs. Cells tagged
+`raises-exception` may fail. A notebook with `"accelerator": "GPU"` in its
+metadata is skipped on a machine without a GPU.
 
 Usage: python tools/run_notebook.py <notebook.ipynb> <output_dir>
 """
 import os
 import re
+import shutil
 import sys
 import time
 from pathlib import Path
@@ -29,12 +32,15 @@ client = NotebookClient(
     resources={"metadata": {"path": str(path.parent)}},
 )
 start = time.time()
-try:
-    client.execute()
-    status, line = 0, f"✅ `{path}`"
-except CellExecutionError as e:
-    print(e)
-    status, line = 1, f"❌ `{path}`: {e.ename}: {e.evalue}"
+if nb.metadata.get("accelerator") == "GPU" and not shutil.which("nvidia-smi"):
+    status, line = 0, f"⏭️ `{path}`: skipped, needs a GPU"
+else:
+    try:
+        client.execute()
+        status, line = 0, f"✅ `{path}`"
+    except CellExecutionError as e:
+        print(e)
+        status, line = 1, f"❌ `{path}`: {e.ename}: {e.evalue}"
 
 out_dir.mkdir(parents=True, exist_ok=True)
 nbformat.write(nb, out_dir / path.name)

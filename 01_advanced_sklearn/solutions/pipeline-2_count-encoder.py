@@ -1,3 +1,4 @@
+from sklearn.ensemble import RandomForestClassifier
 from collections import Counter
 import numpy as np
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -38,7 +39,7 @@ cat_pipeline = Pipeline([
 ])
 
 categorical_preprocessing = ColumnTransformer([
-    ("categorical_preproc", cat_pipeline, cat_col)
+    ("categorical_preproc", cat_pipeline, cat_cols)
 ])
 
 model = Pipeline([
