@@ -1,4 +1,3 @@
-
 from ipywidgets import interact
 
 @interact(max_depth=(1, 10))

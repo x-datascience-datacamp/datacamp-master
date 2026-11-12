@@ -8,7 +8,7 @@ clf_static = make_pipeline(
     ),
     RandomForestClassifier()
 ).fit(X_train, y_train)
-y_pred_static = clf.predict(X_test)
+y_pred_static = clf_static.predict(X_test)
 
 print("Accuracy:", accuracy_score(y_test, y_pred_static))
 print("Balanced accuracy:", balanced_accuracy_score(y_test, y_pred_static))

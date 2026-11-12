@@ -17,13 +17,12 @@ df
 # %% Do fitting with Prophet
 from prophet import Prophet
 
-df_train = df[:len(df) // 2]
+df_train = df[:len(data_train)]
 m = Prophet()
 m.fit(df_train)
-future = m.make_future_dataframe(periods=100, freq="M")
-forecast = m.predict(future)
-forecast[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
-fig1 = m.plot(forecast)
+forecast_prophet = m.predict(df[["ds"]])
+forecast_prophet[['ds', 'yhat', 'yhat_lower', 'yhat_upper']].tail()
+fig1 = m.plot(forecast_prophet)
 
 # %% Do diagnostic plots
 from prophet.diagnostics import cross_validation

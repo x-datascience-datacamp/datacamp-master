@@ -1,4 +1,3 @@
-
 def information_gain_mse(y, y_left, y_right):
     orig_variance = np.var(y)
     left_variance = 0

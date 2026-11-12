@@ -1,0 +1,95 @@
+name: Notebooks
+
+# Checks the notebook conventions (pre-commit hooks, see CONTRIBUTING.md) and
+# executes notebooks with their exercise cells replaced by their solutions.
+# PRs and pushes run the notebooks they touch: the notebook itself, or any
+# other file in its folder (solutions, data); environment.yml, tools/ or
+# .github/ changes run them all. Run it by hand for a status of every notebook:
+#   gh workflow run notebooks.yml -f notebooks=all
+#   gh workflow run notebooks.yml -f notebooks=06_learning_with_time_series
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      notebooks:
+        description: "'all', or space-separated notebook paths or folder prefixes"
+        default: all
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pipx run pre-commit run --all-files --show-diff-on-failure
+
+  select:
+    runs-on: ubuntu-latest
+    outputs:
+      notebooks: ${{ steps.select.outputs.notebooks }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: select
+        env:
+          NOTEBOOKS: ${{ inputs.notebooks }}
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        shell: python
+        run: |
+          import json, os, subprocess
+          from pathlib import Path
+
+          git = lambda *a: subprocess.run(["git", *a], capture_output=True, text=True)
+          nbs = sorted(p for p in git("ls-files", "*.ipynb").stdout.split()
+                       if not p.startswith("old_materials/"))
+          request = os.environ["NOTEBOOKS"]
+          if not request:
+              diff = git("diff", "--name-only", os.environ["BASE"], "HEAD")
+              changed = diff.stdout.split() if diff.returncode == 0 else [".github/"]
+              if any(c == "environment.yml" or c.startswith((".github/", "tools/")) for c in changed):
+                  request = "all"
+              else:
+                  request = " ".join(
+                      n for n in nbs for c in changed
+                      if c == n or (c.startswith(f"{Path(n).parent}/") and not c.endswith(".ipynb"))
+                  )
+          picked = nbs if request == "all" else [n for n in nbs if any(n.startswith(r) for r in request.split())]
+          print("\n".join(picked))
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"notebooks={json.dumps(picked)}\n")
+
+  run:
+    needs: select
+    if: needs.select.outputs.notebooks != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        notebook: ${{ fromJSON(needs.select.outputs.notebooks) }}
+    name: ${{ matrix.notebook }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    defaults:
+      run:
+        shell: bash -el {0}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: mamba-org/setup-micromamba@v2
+        with:
+          environment-file: environment.yml
+          cache-environment: true
+      - run: python tools/run_notebook.py "${{ matrix.notebook }}" executed
+      - id: name
+        if: always()
+        run: echo "name=$(basename '${{ matrix.notebook }}' .ipynb)" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ${{ steps.name.outputs.name }}
+          path: executed/
