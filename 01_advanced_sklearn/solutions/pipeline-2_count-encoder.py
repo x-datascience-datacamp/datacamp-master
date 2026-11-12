@@ -38,7 +38,7 @@ cat_pipeline = Pipeline([
 ])
 
 categorical_preprocessing = ColumnTransformer([
-    ("categorical_preproc", cat_pipeline, cat_col)
+    ("categorical_preproc", cat_pipeline, cat_cols)
 ])
 
 model = Pipeline([
