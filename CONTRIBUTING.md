@@ -110,9 +110,9 @@ Solution: `solutions/cv-1_target-distribution.py`
 
 The `Notebooks` workflow runs the hooks, then executes the notebooks with
 each exercise cell replaced by its solution. A pull request runs the
-notebooks it touches: the notebook itself, or any other file in its folder.
-A change to `environment.yml`, `tools/` or `.github/` runs them all. Each
-notebook is one job, and the run summary lists the errors.
+notebooks it changes, directly or through one of their solutions. Each
+notebook is one job, and the run summary lists the errors. After a change to
+`environment.yml`, `tools/` or a data file, run the notebooks by hand.
 
 Run every notebook, or the notebooks of one folder, by hand:
 
